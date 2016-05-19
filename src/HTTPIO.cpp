@@ -198,7 +198,7 @@ SwiftResult<T>* doSwiftTransaction(Account *_account, std::string &_uriPath,
     //queryStream << "?";
     for (uint i = 0; i < _uriParams->size(); i++) {
       if (i > 0)
-        queryStream << ",";
+        queryStream << "&";
       queryStream << _uriParams->at(i).getQueryValue();
     }
     uri.setQuery(queryStream.str());
