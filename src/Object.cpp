@@ -50,11 +50,12 @@ SwiftResult<istream*>* Object::swiftGetObjectContent(
   //Path
   string path = container->getName() + "/" + name;
   /**
-   * Valid HTTP return codes for this operation: 200
+   * Valid HTTP return codes for this operation: 200, 206
    * Success. The response body shows object content
    */
   vector<int> validHTTPCodes;
   validHTTPCodes.push_back(HTTPResponse::HTTP_OK);
+  validHTTPCodes.push_back(HTTPResponse::HTTP_PARTIAL_CONTENT);
 
   //Do swift transaction
   return doSwiftTransaction<istream*>(container->getAccount(), path,
