@@ -23,7 +23,7 @@ LIBS =-lPocoUtild -lPocoUtil -lPocoXML -lPocoNet -lPocoNetd -lPocoFoundation -lP
 
 
 TARGET =	SwiftSDK
-LIBSWIFT = $(BUILDDIR)/libSwift.so
+LIBSWIFT = $(BUILDDIR)/libSwift.a
 
 #CXX=clang++
 all: $(LIBSWIFT) $(TARGET)
@@ -31,7 +31,7 @@ all: $(LIBSWIFT) $(TARGET)
 $(LIBSWIFT) : $(CXXOBJS)
 	mkdir -p $(BUILDDIR)
 	mkdir -p $(BUILDDIR)/include/Swift
-	$(CXX) $(CXXFLAGS) $(CXXOBJS) -o $@ $(LDFLAGS) $(LIBS)
+	ar rcs $@ $(CXXOBJS)
 	cp -rf $(LIBSWIFTHEADERS) $(BUILDDIR)/include/Swift
 
 $(TARGET):	$(CXXOBJS) $(COBJS) $(TESTOBJS)
@@ -41,7 +41,7 @@ $(TARGET):	$(CXXOBJS) $(COBJS) $(TESTOBJS)
 install:
 	cp -r $(BUILDDIR)/include/Swift /usr/local/include
 	cp $(LIBSWIFT) /usr/local/lib
-	
+
 uninstall:
 	rm -rf /usr/local/include/Swift
 	rm -f /usr/local/lib/libSwift.so
