@@ -100,7 +100,7 @@ Poco::Net::HTTPClientSession* doHTTPIO(const Poco::URI& uri,
   //write request body
   ostream &ostream = session->sendRequest(request);
 
-  ostream << reqBody;
+  ostream << std::string{reqBody, size};
   return session;
 }
 
