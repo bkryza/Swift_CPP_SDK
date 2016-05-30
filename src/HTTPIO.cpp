@@ -249,10 +249,10 @@ SwiftResult<T>* doSwiftTransaction(Account *_account, std::string &_uriPath,
     }
 
   if (!valid) {
-  	Logger::DEBUG()<<"Invalid Return code:";
-    httpResponse->write(Logger::DEBUG());
-    if(httpResponse->getStatus() == 200)
-      Logger::ERROR()<<"bullshit"<<endl;
+//  	Logger::DEBUG()<<"Invalid Return code:";
+//    httpResponse->write(Logger::DEBUG());
+//    if(httpResponse->getStatus() == 200)
+//      Logger::ERROR()<<"bullshit"<<endl;
     if(httpResponse->getStatus() == HTTPResponse::HTTP_UNAUTHORIZED) {
       if(_account->reAuthenticate()) {
         delete httpSession;httpSession = nullptr;
