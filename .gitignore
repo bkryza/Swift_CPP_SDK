@@ -1,5 +1,6 @@
 *.o
 /.idea
-/package
 /deb
+/package
+/package.tar.gz
 /rpm

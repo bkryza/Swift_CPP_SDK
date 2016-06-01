@@ -323,6 +323,35 @@ void Container::setTotalObjects(uint64_t totalObjects) {
   this->totalObjects = totalObjects;
 }
 
+SwiftResult<std::istream*>* Container::swiftDeleteObjects(std::vector<std::string> objects) {
+  std::string data{};
+  if (!objects.empty()) {
+    data += "/" + this->name + "/" + objects.front();
+    for (auto it = objects.begin() + 1; it != objects.end(); ++it) {
+      data += "\n/" + this->name + "/" + *it;
+    }
+    data += "\n";
+  }
+
+  /**
+   * Check HTTP return code
+   * 200:
+   *  Success. Objects successfully deleted.
+   */
+  vector<int> validHTTPCodes;
+  validHTTPCodes.push_back(HTTPResponse::HTTP_OK);
+
+  string path = this->name;
+  string contentType = "text/plain";
+  auto uriParams = std::vector<Swift::HTTPHeader>({Swift::HTTPHeader(
+          "bulk-delete", "")});
+
+  //Do swift transaction
+  return doSwiftTransaction<std::istream*>(this->account, path, HTTPRequest::HTTP_POST,
+     &uriParams, nullptr, &validHTTPCodes, data.c_str(), data.size(), &contentType);
+
+}
+
 } /* namespace Swift */
 
 

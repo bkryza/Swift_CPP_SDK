@@ -110,6 +110,11 @@ public:
    */
   SwiftResult<int*>* swiftShowMetadata(bool _newest = false);
 
+  /**
+   * Removes objects from this container.
+   */
+  SwiftResult<std::istream*>* swiftDeleteObjects(std::vector<std::string> objects);
+
   Account* getAccount();
   std::string& getName();
   void setName(const std::string& name);
