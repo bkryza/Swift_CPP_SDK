@@ -64,7 +64,7 @@ SwiftResult<istream*>* Object::swiftGetObjectContent(
 }
 
 SwiftResult<int*>* Object::swiftCreateReplaceObject(const char* _data,
-    ulong _size, bool _calculateETag, std::vector<HTTPHeader>* _uriParams,
+    unsigned long _size, bool _calculateETag, std::vector<HTTPHeader>* _uriParams,
     std::vector<HTTPHeader>* _reqMap) {
   //Check Container
   if (container == nullptr)

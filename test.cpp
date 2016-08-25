@@ -198,8 +198,8 @@ int main(int argc, char** argv) {
   SwiftResult<HTTPClientSession*> *chunkedResult =
       chucnkedObject.swiftCreateReplaceObject(outStream);
 
-  ulong max = INT_MAX / 100000;
-  for (ulong i = 0; i < max; i++) {
+  unsigned long max = INT_MAX / 100000;
+  for (unsigned long i = 0; i < max; i++) {
     *outStream << i << "\n";
     if (i % 1000 == 0) {
       double id = i;

@@ -78,7 +78,7 @@ Poco::Net::HTTPClientSession* doHTTPIO(const Poco::URI& uri,
 
 Poco::Net::HTTPClientSession* doHTTPIO(const Poco::URI& uri,
     const std::string& type, std::vector<HTTPHeader>* params,
-    const char* reqBody, ulong size, const std::string& contentType) {
+    const char* reqBody, unsigned long size, const std::string& contentType) {
   HTTPClientSession *session = new HTTPClientSession(uri.getHost(),
       uri.getPort());
   HTTPRequest request(type, uri.getPathAndQuery());
@@ -146,21 +146,21 @@ template
 SwiftResult<istream*>* doSwiftTransaction<istream*>(Account *_account,
     std::string &_uriPath, const std::string &_method,
     std::vector<HTTPHeader>* _uriParams, std::vector<HTTPHeader>* _reqMap,
-    std::vector<int> *_httpValidCodes, const char *bodyReqBuffer, ulong size,
+    std::vector<int> *_httpValidCodes, const char *bodyReqBuffer, unsigned long size,
     std::string *contentType);
 
 template
 SwiftResult<int*>* doSwiftTransaction<int*>(Account *_account,
     std::string &_uriPath, const std::string &_method,
     std::vector<HTTPHeader>* _uriParams, std::vector<HTTPHeader>* _reqMap,
-    std::vector<int> *_httpValidCodes, const char *bodyReqBuffer, ulong size,
+    std::vector<int> *_httpValidCodes, const char *bodyReqBuffer, unsigned long size,
     std::string *contentType);
 
 template<class T>
 SwiftResult<T>* doSwiftTransaction(Account *_account, std::string &_uriPath,
     const std::string &_method, std::vector<HTTPHeader>* _uriParams,
     std::vector<HTTPHeader>* _reqMap, std::vector<int> *_httpValidCodes,
-    const char *bodyReqBuffer, ulong size, std::string *contentType) {
+    const char *bodyReqBuffer, unsigned long size, std::string *contentType) {
   //Start locking
   lock_guard<recursive_mutex> guard(transactionMutex);
   //Start of function

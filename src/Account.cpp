@@ -29,7 +29,7 @@ using namespace Poco::Net;
 namespace Swift {
 
 /** Initialize Static members **/
-ulong Account::numOfCalls = 0;
+unsigned long Account::numOfCalls = 0;
 
 struct Role {
   string name = "null";
@@ -201,11 +201,11 @@ bool Account::isAllowReauthenticate() {
   return this->allowReauthenticate;
 }
 
-ulong Account::increaseCallCounter() {
+unsigned long Account::increaseCallCounter() {
   return ++numOfCalls;
 }
 
-ulong Account::getNumberOfCalls() {
+unsigned long Account::getNumberOfCalls() {
   return Account::numOfCalls;
 }
 

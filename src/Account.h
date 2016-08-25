@@ -91,7 +91,7 @@ private:
   /**
    * Number of calls made to Object Store
    */
-  static ulong numOfCalls;
+  static unsigned long numOfCalls;
 
 public:
   virtual ~Account();
@@ -138,14 +138,14 @@ public:
   /**
    * Increase the call counter which tracks how many calls are made to the ObjectStore
    */
-  static ulong increaseCallCounter();
+  static unsigned long increaseCallCounter();
 
   /**
    * Returns the number of HTTP calls that have been made to the ObjectStore server. This could be
    * useful to check the efficiency of the methods and configuration in use
    * @return number of calls made to the ObjectStore server
    */
-  static ulong getNumberOfCalls();
+  static unsigned long getNumberOfCalls();
 
   /**
    * Returns the tenant of the account.

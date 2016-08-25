@@ -77,7 +77,7 @@ public:
    *  recommended to do so because it'll check the integrity of object
    *  on the server.
    */
-  SwiftResult<int*>* swiftCreateReplaceObject(const char* _data, ulong _size,
+  SwiftResult<int*>* swiftCreateReplaceObject(const char* _data, unsigned long _size,
       bool _calculateETag = true, std::vector<HTTPHeader> *_uriParams = nullptr,
       std::vector<HTTPHeader> *_reqMap = nullptr);
 
