@@ -39,10 +39,10 @@ $(TARGET):	$(CXXOBJS) $(COBJS) $(TESTOBJS)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(CXXOBJS) $(TESTOBJS) $(LIBS)
 
 install:
-	mkdir -p $(DESTDIR)/usr/local/include
-	mkdir -p $(DESTDIR)/usr/local/lib
-	cp -r $(BUILDDIR)/include/Swift $(DESTDIR)/usr/local/include
-	cp $(LIBSWIFT) $(DESTDIR)/usr/local/lib/libSwift.a
+	mkdir -p $(DESTDIR)/include
+	mkdir -p $(DESTDIR)/lib
+	cp -r $(BUILDDIR)/include/Swift $(DESTDIR)/include
+	cp $(LIBSWIFT) $(DESTDIR)/lib/libSwift.a
 
 #$(COBJS): %.o: %.c
 #	$(CC) $(CFLAGS) -c $< -o $@
