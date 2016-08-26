@@ -1,5 +1,5 @@
 #CXXFLAGS =	-O3 -Wall -fmessage-length=0 -std=c++11
-CXXFLAGS = -fPIC -g -O3 -Wall -fmessage-length=0 -std=c++11
+CXXFLAGS = -fPIC -g -O3 -Wall -fmessage-length=0 -std=c++14
 CFLAGS = -Wno-address -Wno-char-subscripts # -Wno-sign-compare
 
 SWIFT=$(wildcard src/*.cpp)
@@ -39,10 +39,10 @@ $(TARGET):	$(CXXOBJS) $(COBJS) $(TESTOBJS)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(CXXOBJS) $(TESTOBJS) $(LIBS)
 
 install:
-	mkdir -p $(DESTDIR)/usr/include
-	mkdir -p $(DESTDIR)/usr/lib
-	cp -r $(BUILDDIR)/include/Swift $(DESTDIR)/usr/include
-	cp $(LIBSWIFT) $(DESTDIR)/usr/lib/libSwift.a
+	mkdir -p $(DESTDIR)/usr/local/include
+	mkdir -p $(DESTDIR)/usr/local/lib
+	cp -r $(BUILDDIR)/include/Swift $(DESTDIR)/usr/local/include
+	cp $(LIBSWIFT) $(DESTDIR)/usr/local/lib/libSwift.a
 
 #$(COBJS): %.o: %.c
 #	$(CC) $(CFLAGS) -c $< -o $@
