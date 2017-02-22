@@ -1,5 +1,5 @@
 #CXXFLAGS =	-O3 -Wall -fmessage-length=0 -std=c++11
-CXXFLAGS = -fPIC -g -O3 -Wall -fmessage-length=0 -std=c++14
+CXXFLAGS = -fPIC -g -O3 -Wall -fmessage-length=0 -std=c++14 -I/usr/local/include
 CFLAGS = -Wno-address -Wno-char-subscripts # -Wno-sign-compare
 
 SWIFT=$(wildcard src/*.cpp)
